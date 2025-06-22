@@ -364,33 +364,8 @@ def admin_panel():
         st.set_page_config(layout="centered")
         st.rerun()
 
-    # --- NEW: One-Time Data Import Section ---
-    st.sidebar.markdown("---")
-    st.sidebar.subheader("One-Time Data Import")
-    if st.sidebar.button("Import Data from CSVs"):
-        try:
-            import pandas as pd
-            import sqlite3
-            
-            conn = sqlite3.connect("survey_app.db")
-            
-            # The order of import is important due to relationships
-            files_to_import = ['settings.csv', 'categories.csv', 'questions.csv', 'score_ranges.csv']
-            
-            for filename in files_to_import:
-                table_name = filename.replace('.csv', '')
-                df = pd.read_csv(filename)
-                # Use 'if_exists="replace"' to wipe the table and insert new data
-                df.to_sql(table_name, conn, if_exists='replace', index=False)
-                st.sidebar.success(f"Imported {filename}")
-            
-            conn.close()
-            st.sidebar.info("Import complete. Refreshing...")
-            st.rerun()
-
-        except Exception as e:
-            st.sidebar.error(f"Import failed: {e}")
-
+    # NOTE: The one-time import functionality has been removed from this final version.
+    
     page = st.sidebar.radio("Go to", ["Dashboard", "Survey Settings", "Categories", "Questions", "Report Ranges"])
     st.sidebar.markdown("---")
 
