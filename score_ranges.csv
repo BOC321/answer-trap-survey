@@ -1,0 +1,132 @@
+id,category_id,start_score,end_score,report_text,display_color
+1,1,0,7,"YOUR ANSWER TRAP RISK PROFILE: VERY LOW
+
+You’re thinking clearly — and that’s no small thing.
+You’re not reacting just to feel in control. You’re staying curious, asking good questions, and resisting the pressure to jump too quickly to a solution. You’ve found a way to think well, even when things get busy or uncertain.
+That’s rare. And valuable. Especially now.
+But The Answer Trap isn’t just a personal pattern. It shows up in teams, systems and cultures too — often without anyone seeing it. You might be clear — but others around you may not be.
+Breaking Free:
+You’re thinking clearly — and that puts you in a strong position. Now the challenge is bigger: how do you help others stay clear too?
+The Answer Trap book gives you the tools to lead shared thinking — so your team, organisation or culture doesn’t default to quick fixes when deeper thinking is needed.
+",#03ff00
+2,1,8,14,"YOUR ANSWER TRAP RISK PROFILE: LOW
+
+You’re mostly clear — but the pressure still creeps in.
+You’re doing a good job holding space for thinking. You usually pause before reacting, and your decisions tend to be considered rather than automatic. But when the stakes are high or things move fast, the pressure can still knock you off balance.
+You know the value of slowing down — but you also know what it feels like to be nudged toward certainty, even when the situation needs more exploration. That’s where The Answer Trap can slip in quietly: not because you’re unaware, but because the world rewards fast, confident answers.
+This is a good place to be — but it’s not immune. You’re not at risk every day, but you are still navigating systems that reward reactivity.
+Breaking Free:
+You’ve built strong thinking habits — and the next step is to make them more consistent under pressure. The Answer Trap book shows how to reinforce your clarity and expand it to others. It introduces The Moment Method, a practical approach that helps you stay steady, even when urgency and ambiguity collide.
+",#b5ff00
+3,1,15,21,"YOUR ANSWER TRAP RISK PROFILE: MODERATE
+
+You’re managing well — but the pressure is starting to show.
+Some days, you take the time to think. Other days, the answer’s out of your mouth before you realise you’ve skipped the thinking part. You’re juggling a lot and trying to stay clear. But it’s getting harder to tell the difference between moving forward and just reacting.
+You’re not stuck — but you’re close. The Answer Trap is hovering in the background, quietly shaping the way you respond. And when things get messy or high-stakes, it can slip in before you even notice.
+This is your moment to reset. Not everything needs an instant answer.
+Breaking Free:
+The Answer Trap is hovering — not always obvious, but close enough to influence how you respond under pressure. You’ve got moments of clarity, but they don’t always hold. Now’s the time to strengthen your thinking habits so you don’t get pulled in.
+The Answer Trap book introduces The Moment Method — a simple, practical way to stay focused, ask better questions, and think clearly even when things get messy.
+
+",#fff400
+4,1,22,28,"YOUR ANSWER TRAP RISK PROFILE: HIGH
+
+You’re under pressure — and The Answer Trap is gaining ground.
+There’s a lot coming at you, and clarity feels harder to hold onto. You’re still making it work — but more and more, decisions are being shaped by urgency rather than intention. You know how to think well, but that space is getting squeezed.
+It’s not that things are broken. It’s that the pace, pressure and expectations are starting to override your usual judgement. The risk? You find yourself delivering answers that sound confident — but don’t reflect your best thinking.
+This is the early stage of The Answer Trap. Not a crisis, but a drift — where your brain defaults to speed, and your decisions start to slide off course.
+Breaking Free:
+The trap is starting to interfere with your clarity — not dramatically, but enough to notice. This is the perfect time to catch it early. In The Answer Trap book, you’ll learn how to recognise the small moments that matter, before reactivity takes over. Chapter 1 shows how fast answers take hold, and later chapters introduce The Moment Method — a tool to help you slow the slide, sharpen your thinking, and stay deliberate even under pressure.
+",#ffa900
+5,1,29,42,"YOUR ANSWER TRAP RISK PROFILE: VERY HIGH  
+
+You’re under pressure — and The Answer Trap is already in play.
+Right now, the world around you is moving fast. Answers are expected quickly, and there’s rarely time to stop and ask, “Is this the right one?” You’re doing what you’ve been trained to do: respond, decide, keep things moving.
+But even if things look under control, the trap is already active. You’re likely making decisions without the space to think them through properly. And over time, that costs you — in clarity, in outcomes, and in confidence.
+This is how smart people get stuck. Not because they don’t know what to do, but because the system doesn’t give them room to think.
+That’s The Answer Trap. Fast answers feel good in the moment — but they quietly pull your thinking off course.
+Breaking Free:
+Right now, your thinking is being hijacked by The Answer Trap — fast answers that bring relief but don’t move things forward. The first step isn’t to push through. It’s to catch the trap before it takes hold. That starts with noticing the pressure to respond quickly and pausing before it pulls you in. To discover more, refer to Chapter 1 in The Answer Trap book where you’ll learn how to spot this moment in real time. Later chapters provide a practical way to break free.
+",#ff0000
+6,2,12,14,"INDIVIDUAL RISK: VERY HIGH
+
+You carry a strong internal drive to appear confident, clear and in control — even when things are messy. You’re likely to respond quickly, speak with certainty, and take on responsibility for clarity in the room. This increases the risk of falling into The Answer Trap — not just occasionally, but as a pattern. Over time, it becomes harder to pause, question or show vulnerability, even when the situation demands it.
+",#ff0000
+7,2,9,11,"INDIVIDUAL RISK: HIGH
+
+You feel a real sense of responsibility to provide direction. You often find yourself stepping in to bring clarity — even when you’re unsure yourself. This makes it easier to default to fast responses, especially under pressure, and harder to stay with uncertainty long enough to find a better way forward.
+",#ff4b00
+8,2,6,8,"INDIVIDUAL RISK: MODERATE
+
+You’re balancing your need for clarity with your ability to hold back when things are unclear. Sometimes you take time to think — other times you speak quickly to meet expectations. You’re not caught in The Answer Trap, but the pressure still influences your thinking, especially when you’re under stress or in the spotlight.
+",#ffbc00
+9,2,3,5,"INDIVIDUAL RISK: LOW
+
+You’re generally comfortable sitting with uncertainty, and don’t feel the need to have the answer straight away. You probably still want clarity, but you're willing to say ""I don't know"" or pause when the situation requires it. This allows space for better thinking — though you may still occasionally feel pulled toward certainty when others look to you for direction.
+",#d2ff00
+10,2,0,2,"INDIVIDUAL RISK: VERY LOW
+
+You’re not driven by the need to appear certain and have all the answers. The chances are that you think with patience, ask good questions, and let the right answer emerge — even if that means holding discomfort for longer than most. This makes you highly resistant to The Answer Trap. Your thinking isn’t rushed or reactive — it’s considered, calm and intentional.
+",#00ff10
+11,3,12,14,"ENVIRONMENTAL RISK: VERY HIGH
+
+You're operating in constant change. Priorities move, context shifts, and stability feels out of reach. This makes it much harder to think clearly — and much easier to grab at the first answer that offers a sense of progress. The trap here is feeling like you have to decide, just to keep up — even when you’re unsure what you’re deciding on.
+",#ff0900
+12,3,9,11,"ENVIRONMENTAL RISK: HIGH
+
+You’re surrounded by frequent change, though it may not be total chaos. You’re often in motion, reacting to what's next — and the pressure to act quickly can override reflection. There’s just enough churn to keep you off balance, and that means even thoughtful people can get pulled into The Answer Trap more often than they realise.
+",#ff6700
+13,3,6,8,"ENVIRONMENTAL RISK: MODERATE
+
+Things around you are moving, but there’s still some structure to work with. You can often think things through — but when change accelerates, your brain still defaults to speed over depth. The challenge is knowing when it’s safe to move forward, and when you need to slow down and reset.
+",#ffeb00
+14,3,3,5,"ENVIRONMENTAL RISK: LOW
+
+Your environment is generally stable — but with the occasional disruption. You have space to think most of the time, but when something unexpected happens, the old pressure to act fast can still flare up. It’s a healthy place to be, but it still needs active awareness when things start to shift.
+",#90ff00
+15,3,0,2,"ENVIRONMENTAL RISK: VERY LOW
+
+You’re working in a context that supports clarity and strong decision making. Priorities are consistent, decisions aren’t rushed, and expectations allow for thoughtful thinking.
+This creates the conditions for strong, confident choices — and makes it easier to resist the pull of The Answer Trap, even when things do get messy.
+
+",#03ff00
+16,4,0,2,"CULTURAL RISK: VERY LOW
+
+You’re working in a culture that gives space for real thinking. Uncertainty isn’t avoided, questions are welcomed, and people value clarity over speed. This is rare — and powerful. It means The Answer Trap has less grip, and deeper thinking is more likely to thrive across the group.
+
+
+",#03ff00
+17,4,3,5,"CULTURAL RISK: LOW
+
+You’re in a culture that’s generally open to exploration — but under pressure, the instinct to simplify or “just fix it” can still surface. You’re mostly supported in thinking clearly, but some habits or voices in the system still make it harder to stay with complexity when it matters most.
+
+
+
+",#99ff00
+18,4,6,8,"CULTURAL RISK: MODERATE
+
+You’re in a mixed culture — some space for reflection, but still moments where pressure or urgency wins. You can think well when it’s quiet, but the tone changes when things heat up.
+In this space, The Answer Trap doesn’t just come from within — it creeps in through the expectations of others.
+
+
+
+",#fffd00
+19,4,9,11,"CULTURAL RISK: HIGH
+
+You’re part of a culture that rewards decisiveness and clarity — but sometimes at the expense of depth. There’s pressure to keep things simple, avoid tough conversations, or stick to the plan even when it no longer fits.
+It may not always feel like reactivity, but it creates conditions where The Answer Trap easily takes hold.
+
+
+
+
+",#ffa000
+20,4,12,14,"CULTURAL RISK: VERY HIGH
+
+You're in a culture where fast action is everything. There’s little tolerance for uncertainty, and the unspoken rule is to look confident and keep moving — no matter what.
+This environment doesn’t just invite The Answer Trap — it reinforces it. It’s hard to pause, and even harder to speak up when you need to think things through.
+
+
+
+
+
+",#ff1c00

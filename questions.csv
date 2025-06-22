@@ -1,0 +1,22 @@
+id,category_id,text,answer1_text,answer1_score,answer2_text,answer2_score,answer3_text,answer3_score
+4,3,We've been through a lot of change and there's more coming,Definitely,2,Kind of,1,Not at all,0
+5,3,"Everything keeps shifting, faster than we can make sense of it.",Definitely,2,Kind of,1,Not at all,0
+6,3,Our ways of working keep changing and it’s hard to keep up.,Definitely,2,Kind of,1,Not at all,0
+7,2,"I feel pressure to respond with something clear, even when the situation is messy.",Definitely,2,Kind of,1,Not at all,0
+8,2,"When someone asks me a tough question, I feel like I need to respond quickly.",Definitely,2,Kind of,1,Not at all,0
+9,4,"""We just need to make a call""",Extremely Likely,2,Somewhat likely,1,Unlikely,0
+10,2,"When I ask a clear question, I usually want a clear response",Definitely,2,Kind of,1,Not at all,0
+11,2,"When I create clarity for others, I feel useful and respected.",Definitely,2,Kind of,1,Not at All,0
+12,2,I’m someone people turn to when they’re unsure what to do.,Definitely,2,Kind of,1,Not at all,0
+13,2,"I worry I’ll seem unprepared if I say, ‘I’m not sure.",Definitely,2,Kind of,1,Not at all,0
+14,2,I’d rather say something confidently than admit I’m still working it out.,Definitely,2,Kind of,1,Not at all,0
+15,3,"Our people are spread out across locations, teams or time zones.",Definitely,2,Kind of,1,Not at all,0
+16,3,"Even when things calm down, we’re never sure what’s coming next.",Definitely,2,Kind of,1,Not at all,0
+17,3,"The big picture keeps changing—just when we think we’ve got it, it moves again.",Definitely,2,Kind of,1,Not at all,0
+18,3,"There’s so much going on, it’s hard to know what’s important anymore.",Definitely,2,Kind of,1,Not at all,0
+19,4,“How do we fix this?”,Extremely likely,2,Somewhat likely,1,Unlikely,0
+20,4,“Now is not the time to discuss that”,Extremely likely,2,Somewhat likely,1,Unlikely,0
+21,4,“We’ve got a plan. Let’s stick with it”,Extremely likely,2,Somewhat likely,1,Unlikely,0
+22,4,“Let’s not go there”,Extremely likely,2,somewhat likely,1,Unlikely,0
+23,4,“We don’t want to look bad”,Extremely likely,2,Somewhat likely,1,Unlikely,0
+24,4,“Let’s keep this simple”,Extremely likely,2,Somewhat likely,1,Unlikely,0
