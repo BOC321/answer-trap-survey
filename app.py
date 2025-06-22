@@ -37,10 +37,8 @@ for key, value in states_to_initialize.items():
 # ==============================================================================
 # --- USER SURVEY SECTION ---
 # ==============================================================================
-# In app.py, find and replace this function
-
 def generate_report():
-    """Generates and displays the final report in the correct order."""
+    """Generates and displays the final report, and handles emailing."""
     st.success("You have completed the survey!")
     st.balloons()
     st.header("Your Risk Profile Report")
@@ -49,30 +47,22 @@ def generate_report():
     # --- Calculations ---
     final_scores = st.session_state.scores
     total_score = sum(final_scores.values())
-    
-    # Get categories in their correct order (excluding _TotalScore)
     all_categories = get_all_categories(include_total_score=False)
-    # We still need the full map for the Total Score section later
     full_category_map = {cat_id: name for cat_id, name in get_all_categories(include_total_score=True)}
     total_score_cat_id = next((cat_id for cat_id, name in full_category_map.items() if name == "Total Score"), None)
 
     # --- Display Category Results (IN ORDER) ---
     st.subheader("Category Breakdown")
-    # Loop through the ordered list of categories, not the score dictionary
     for cat_id, cat_name in all_categories:
-        # Get the score for the current category, default to 0 if not present
         score = final_scores.get(cat_id, 0)
-        
         ranges = get_ranges_for_category(cat_id)
         report_text = "No report text defined for this score."
         display_color = "#f0f2f6"
-        
         for r_id, r_start, r_end, r_text, r_color in ranges:
             if r_start <= score <= r_end:
                 report_text = r_text
                 display_color = r_color
                 break
-        
         st.markdown(f"<div style='border-left: 5px solid {display_color}; padding-left: 15px; margin-bottom: 20px; border-radius: 5px; background-color: #fafafa; padding: 15px;'>"
                     f"<h4>{cat_name}</h4>"
                     f"<h6>Your Score: {score}</h6>"
@@ -94,11 +84,8 @@ def generate_report():
     # --- Display Graph (IN ORDER) ---
     st.markdown("---")
     st.subheader("Visual Score Summary")
-    
-    # Build the graph labels and scores based on the ordered categories
     graph_labels = [cat_name for cat_id, cat_name in all_categories]
     graph_scores = [final_scores.get(cat_id, 0) for cat_id, cat_name in all_categories]
-
     fig = go.Figure(data=[go.Bar(x=graph_labels, y=graph_scores, marker_color='royalblue')])
     fig.update_layout(title_text='Your Scores by Category', xaxis_title="Category", yaxis_title="Score")
     st.plotly_chart(fig, use_container_width=True)
@@ -106,13 +93,10 @@ def generate_report():
     # --- Functional Email Report Section ---
     st.markdown("---")
     st.subheader("Get a Copy of Your Report")
-    
     survey_title = load_setting('survey_title') or "Survey Report"
-    
     with st.form("email_form"):
         user_email = st.text_input("Enter your email address to receive a copy:")
         submitted = st.form_submit_button("Email My Report")
-
         if submitted:
             if user_email:
                 with st.spinner("Sending your report..."):
@@ -379,8 +363,37 @@ def admin_panel():
         st.session_state.logged_in = False
         st.set_page_config(layout="centered")
         st.rerun()
+
+    # --- NEW: One-Time Data Import Section ---
+    st.sidebar.markdown("---")
+    st.sidebar.subheader("One-Time Data Import")
+    if st.sidebar.button("Import Data from CSVs"):
+        try:
+            import pandas as pd
+            import sqlite3
+            
+            conn = sqlite3.connect("survey_app.db")
+            
+            # The order of import is important due to relationships
+            files_to_import = ['settings.csv', 'categories.csv', 'questions.csv', 'score_ranges.csv']
+            
+            for filename in files_to_import:
+                table_name = filename.replace('.csv', '')
+                df = pd.read_csv(filename)
+                # Use 'if_exists="replace"' to wipe the table and insert new data
+                df.to_sql(table_name, conn, if_exists='replace', index=False)
+                st.sidebar.success(f"Imported {filename}")
+            
+            conn.close()
+            st.sidebar.info("Import complete. Refreshing...")
+            st.rerun()
+
+        except Exception as e:
+            st.sidebar.error(f"Import failed: {e}")
+
     page = st.sidebar.radio("Go to", ["Dashboard", "Survey Settings", "Categories", "Questions", "Report Ranges"])
     st.sidebar.markdown("---")
+
     if page == "Dashboard":
         st.title("Admin Dashboard")
         st.info("Select an option from the sidebar to begin configuring your survey.")
@@ -401,7 +414,6 @@ if "mode" in query_params:
     mode = query_params["mode"]
 else:
     mode = "user"
-
 
 if mode == "admin":
     if not st.session_state.logged_in:
