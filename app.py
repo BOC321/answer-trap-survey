@@ -364,6 +364,134 @@ def admin_panel():
         st.set_page_config(layout="centered")
         st.rerun()
 
+    # --- THIS IS THE CORRECT ONE-TIME DATA IMPORT SECTION ---
+    st.sidebar.markdown("---")
+    st.sidebar.subheader("One-Time Data Import")
+    if st.sidebar.button("Import Data from CSVs"):
+        try:
+            import pandas as pd
+            import sqlite3
+            
+            conn = sqlite3.connect("survey_app.db")
+            
+            files_to_import = ['settings.csv', 'categories.csv', 'questions.csv', 'score_ranges.csv']
+            
+            for filename in files_to_import:
+                table_name = filename.replace('.csv', '')
+                df = pd.read_csv(filename)
+                df.to_sql(table_name, conn, if_exists='replace', index=False)
+                st.sidebar.success(f"Imported {filename}")
+            
+            conn.close()
+            st.sidebar.info("Import complete. Refreshing...")
+            st.rerun()
+
+        except Exception as e:
+            st.sidebar.error(f"Import failed: {e}")
+    # --- END OF IMPORT SECTION ---
+
+    page = st.sidebar.radio("Go to", ["Dashboard", "Survey Settings", "Categories", "Questions", "Report Ranges"])
+    st.sidebar.markdown("---")
+
+    if page == "Dashboard":
+        st.title("Admin Dashboard")
+        st.info("Select an option from the sidebar to begin configuring your survey.")
+    elif page == "Survey Settings":
+        settings_page()
+    elif page == "Categories":
+        categories_page()
+    elif page == "Questions":
+        questions_page()
+    elif page == "Report Ranges":
+        report_ranges_page()
+
+# ==============================================================================
+# --- MAIN ROUTER ---
+# ==============================================================================
+query_params = st.query_params
+if "mode" in query_params:
+    mode = query_params["mode"]
+else:
+    mode = "user"
+
+if mode == "admin":
+    if not st.session_state.logged_in:
+        login_form()
+    else:
+        admin_panel()
+else:
+    user_survey_page()
+```(include_total_score=True)
+    target_dict = {name: id for id, name in all_report_targets}
+    selected_target_name = st.selectbox("Configure Report Ranges For:", options=target_dict.keys())
+    selected_target_id = target_dict[selected_target_name]
+    st.markdown("---")
+    with st.form("new_range_form"):
+        st.subheader(f"Add a New Range for '{selected_target_name}'")
+        col1, col2 = st.columns(2)
+        start_score = col1.number_input("Start Score", min_value=0, step=1)
+        end_score = col2.number_input("End Score", min_value=0, step=1)
+        display_color = st.color_picker("Display Color for this Range", "#007bff")
+        report_text = st.text_area("Report Text for this Range", height=200)
+        submitted = st.form_submit_button("Add Range")
+        if submitted:
+            if end_score <= start_score:
+                st.error("End Score must be greater than Start Score.")
+            else:
+                add_score_range(selected_target_id, start_score, end_score, report_text, display_color)
+                st.success(f"Added new range for '{selected_target_name}'.")
+                st.rerun()
+    st.markdown("---")
+    st.subheader(f"Existing Ranges for '{selected_target_name}'")
+    ranges_for_target = get_ranges_for_category(selected_target_id)
+    if not ranges_for_target:
+        st.info("No ranges have been defined for this target yet.")
+    else:
+        for r_id, r_start, r_end, r_text, r_color in ranges_for_target:
+            with st.container(border=True):
+                st.markdown(f"<div style='border-left: 5px solid {r_color}; padding-left: 10px;'>"
+                            f"<h6>Range: {r_start} - {r_end}</h6>"
+                            f"<p>{r_text}</p>"
+                            "</div>", unsafe_allow_html=True)
+                col1, col2 = st.columns([1, 6])
+                with col1:
+                    if st.button("Edit", key=f"edit_r_{r_id}"):
+                        st.session_state.editing_range_id = r_id
+                        st.rerun()
+                with col2:
+                    if st.button("Delete", key=f"del_r_{r_id}", type="primary"):
+                        delete_score_range(r_id)
+                        st.rerun()
+    if st.session_state.editing_range_id is not None:
+        range_to_edit = next((r for r in ranges_for_target if r[0] == st.session_state.editing_range_id), None)
+        if range_to_edit:
+            r_id, r_start, r_end, r_text, r_color = range_to_edit
+            @st.dialog("Edit Range")
+            def edit_range_dialog():
+                st.subheader("Update the details for this range:")
+                col1, col2 = st.columns(2)
+                new_start = col1.number_input("Start Score", min_value=0, step=1, value=r_start)
+                new_end = col2.number_input("End Score", min_value=0, step=1, value=r_end)
+                new_color = st.color_picker("Display Color", value=r_color)
+                new_text = st.text_area("Report Text", value=r_text, height=200)
+                if st.button("Save Changes"):
+                    if new_end <= new_start:
+                        st.error("End Score must be greater than Start Score.")
+                    else:
+                        update_score_range(r_id, new_start, new_end, new_text, new_color)
+                        st.session_state.editing_range_id = None
+                        st.rerun()
+            edit_range_dialog()
+
+def admin_panel():
+    st.set_page_config(layout="wide")
+    st.sidebar.title("Navigation")
+    st.sidebar.write(f"Welcome, admin!")
+    if st.sidebar.button("Logout"):
+        st.session_state.logged_in = False
+        st.set_page_config(layout="centered")
+        st.rerun()
+
     # --- THIS IS THE ONE-TIME DATA IMPORT SECTION ---
     st.sidebar.markdown("---")
     st.sidebar.subheader("One-Time Data Import")
