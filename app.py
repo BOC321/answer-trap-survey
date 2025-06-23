@@ -372,8 +372,6 @@ def admin_panel():
             import pandas as pd
             import sqlite3
             
-            # NOTE: This assumes the app is running from the root of the repo
-            # where the CSV files are located.
             conn = sqlite3.connect("survey_app.db")
             
             files_to_import = ['settings.csv', 'categories.csv', 'questions.csv', 'score_ranges.csv']
